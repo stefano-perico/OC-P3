@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <h3>Page d'édition des articles</h3>
         <br>
-        <form role="form" action="?admin=envoyer&id=<?= $article->getId(); ?>" method="post">
+        <form role="form" action="?admin=modifier&id=<?= $article->getId(); ?>" method="post">
             <div class="form-group">
                 <input class="form-control" name="titre" placeholder="Votre titre" value="<?= $article->getTitre(); ?>" required>
             </div>

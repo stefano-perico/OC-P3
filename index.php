@@ -1,8 +1,6 @@
 <?php
 // contrôleur frontal
 session_start();
-
-
 require_once('Autoloader.php');
 
 $routeur = new Routeur();

@@ -18,6 +18,12 @@ class ControleurAdmin extends ControleurArticle
         $vue->genererAdmin(array(null));
     }
 
+    public function vueArticle($idArticle){
+        $article = $this->article->getArticle($idArticle);
+        $vue = new Vue ("Admin/vueArticle");
+        $vue->genererAdmin(array('article' => $article));
+    }
+
     public function accueilAdmin()
     {
         $articles = $this->article->getAllArticles();
@@ -88,15 +94,16 @@ class ControleurAdmin extends ControleurArticle
         session_destroy();
     }
 
-    public function morifierArticle($idArticle, $titreArticle, $contenuArticle)
+    public function modifierArticle($idArticle, $titreArticle, $contenuArticle)
     {
         $article = new Article([
             'id' => $idArticle,
-            'contenu' => $titreArticle,
-            '$contenu' => $contenuArticle
+            'titre' => $titreArticle,
+            'contenu' => $contenuArticle
         ]);
         $this->article->update($article);
-
+        header('Location: index.php?admin=article&id='.$idArticle);
+        exit();
     }
 
 }

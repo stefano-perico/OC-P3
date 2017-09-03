@@ -42,7 +42,17 @@ class RouteurAdmin
         {
             if ($_GET['admin'])
             {
-                if($_GET['admin'] == 'editer')
+                if ($_GET['admin'] == 'article')
+                {
+                    $idArticle = intval($this->getParametre($_GET, 'id'));
+                    if ($idArticle != 0)
+                    {
+                        $this->ctrlAdmin->vueArticle($idArticle);
+                    }
+                    else
+                        throw new Exception("Identifiant de l'article non valide");
+                }
+                elseif($_GET['admin'] == 'editer')
                 {
                     if (isset($_GET['id'])) {
                         $idArticle = intval($this->getParametre($_GET, 'id'));
@@ -59,10 +69,10 @@ class RouteurAdmin
                 }
                 elseif ($_GET['admin'] == 'modifier')
                 {
-                    $idArticle = $this->getParametre($_POST, 'id');
+                    $idArticle = $this->getParametre($_GET, 'id');
                     $titreArticle = $this->getParametre($_POST, 'titre');
                     $contenuArticle = $this->getParametre($_POST, 'contenu');
-                    $this->ctrlAdmin->morifierArticle($idArticle, $titreArticle, $contenuArticle);
+                    $this->ctrlAdmin->modifierArticle($idArticle, $titreArticle, $contenuArticle);
                 }
                 elseif($_GET['admin'] == 'envoyer')
                 {
@@ -99,7 +109,7 @@ class RouteurAdmin
     // Recherche un paramètre dans un tableau
     private function getParametre($tableau, $nom) {
         if (isset($tableau[$nom])) {
-            return htmlspecialchars($tableau[$nom]);
+            return ($tableau[$nom]);
         }
         else
             throw new Exception("Paramètre '$nom' absent");

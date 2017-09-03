@@ -109,7 +109,7 @@ class Article
 
     public function getExtrait()
     {
-        $html = substr($this->getContenu(),0,255);
+        $html = substr($this->getContenu(),0,200);
         $html .= '<p><a href="'. $this->getUrl() .'">Voir la suite</a></p>';
         return $html;
     }

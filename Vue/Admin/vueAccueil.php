@@ -24,7 +24,7 @@
                     ?>
                     <tr>
                         <td><?= $article->getId(); ?></td>
-                        <td><?= $article->getTitre(); ?></td>
+                        <td><a href="index.php?admin=article&id=<?= $article->getId(); ?>" ><?= $article->getTitre(); ?></a></td>
                         <td>
                             <a
                                 href="<?= "?admin=editer&id=" . $article->getId() ?>"

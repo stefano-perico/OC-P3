@@ -72,11 +72,10 @@ class ArticlesManager extends Modele
 
     public function update(Article $article)
     {
-        $sql = $this->getBdd()->prepare('UPDATE articles SET titre = :titre, contenu = :contenu, dateCreation = :dateCreation WHERE id = :id');
+        $sql = $this->getBdd()->prepare('UPDATE articles SET titre = :titre, contenu = :contenu WHERE id = :id');
         $sql->bindValue(':id', $article->getId(), PDO::PARAM_INT);
         $sql->bindValue(':titre', $article->getTitre());
         $sql->bindValue(':contenu', $article->getContenu());
-        $sql->bindValue('dateCreation', $article->getDateCreation());
         $sql->execute();
     }
 
