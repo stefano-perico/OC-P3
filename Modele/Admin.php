@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stefa
- * Date: 17/08/2017
- * Time: 16:25
- */
 
 class Admin
 {

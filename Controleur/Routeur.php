@@ -1,6 +1,5 @@
 <?php
 
-require_once('Autoloader.php');
 
 class Routeur {
 

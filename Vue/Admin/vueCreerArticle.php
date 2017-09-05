@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <h3>Page de création des articles</h3>
         <br>
-        <form role="form" action="?action=envoyer" method="post">
+        <form role="form" action="index.php?admin=envoyer" method="post">
             <div class="form-group">
                 <input class="form-control" name="titre" placeholder="Votre titre" required>
             </div>

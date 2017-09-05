@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Stefano
- * Date: 31/07/2017
- * Time: 05:30
- */
-require_once('Autoloader.php');
 
 class ArticlesManager extends Modele
 {

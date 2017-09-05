@@ -1,4 +1,7 @@
 <div class="container bg-3">
+    <br>
+    <h1>Page d'administration</h1>
+    <br>
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#Articles">Articles</a></li>
         <li><a data-toggle="tab" href="#Commentaires">Commentaires</a></li>

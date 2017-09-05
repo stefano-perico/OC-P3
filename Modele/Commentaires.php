@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Stefano
- * Date: 31/07/2017
- * Time: 16:56
- */
+
 
 class Commentaires
 {

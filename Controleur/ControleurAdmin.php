@@ -1,16 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stefa
- * Date: 10/08/2017
- * Time: 11:54
- */
-require_once('Autoloader.php');
+
 class ControleurAdmin extends ControleurArticle
 {
-    private $_user;
-    private $_urlAccueil = 'index.php?admin';
-
 
     public function vueLogin()
     {
@@ -53,10 +44,12 @@ class ControleurAdmin extends ControleurArticle
             'contenu' => $contenu,
         ]);
         $this->article->addArticle($article);
+        Message::setFlash('Création de l\'article <strong>réussie</strong>', 'success');
     }
 
     public function suprArticle($id){
         $this->article->delete($id);
+        Message::setFlash('L\'article a été <strong>supprimé</strong>', 'danger');
         $this->accueilAdmin();
     }
 
@@ -67,13 +60,14 @@ class ControleurAdmin extends ControleurArticle
             'moderer' => 1
         ]);
         $this->commentaire->update($commentaire);
-        header('Location:');
+        Message::setFlash('Le commentaire avec l\' id : '. $commentaire->getId() .' a été  <strong>moderé</strong>', 'info');
+        header('Location: index.php?admin');
         exit();
     }
 
     public function logged()
     {
-        return isset($_SESSION);
+        return isset($_SESSION['admin']);
     }
 
     public function login($login, $pass)
@@ -89,10 +83,6 @@ class ControleurAdmin extends ControleurArticle
         die('Acces interdit');
     }
 
-    public function deconnexion()
-    {
-        session_destroy();
-    }
 
     public function modifierArticle($idArticle, $titreArticle, $contenuArticle)
     {
@@ -102,6 +92,7 @@ class ControleurAdmin extends ControleurArticle
             'contenu' => $contenuArticle
         ]);
         $this->article->update($article);
+        Message::setFlash('Mise à jour <strong>réussie</strong>', 'success');
         header('Location: index.php?admin=article&id='.$idArticle);
         exit();
     }

@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stefa
- * Date: 10/08/2017
- * Time: 18:32
- */
-require_once('Autoloader.php');
 
 class RouteurAdmin
 {

@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Stefano
- * Date: 28/07/2017
- * Time: 21:13
- */
-
 
 class Article
 {

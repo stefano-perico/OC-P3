@@ -7,7 +7,7 @@
             <form role="form" action="?action=signaler" method="post">
                 <input type="hidden" name="idCommentaire" value=<?= $commentaire->getId(); ?> />
                 <input type="hidden" name="idArticle" value=<?= $article->getId(); ?> />
-                <button type="submit" class="pull-right btn btn-xs btn-post" sourceindex="27"><span class="glyphicon glyphicon-exclamation-sign"></span> Signaler</button>
+                <button onclick="return confirm('Voulez vous vraiment signaler le commentaire de <?= $commentaire->getPseudo(); ?> ?')" type="submit" class="pull-right btn btn-xs btn-post" ><span class="glyphicon glyphicon-exclamation-sign"></span> Signaler</button>
             </form>
         </div>
         <div class="col-sm-12">

@@ -1,6 +1,5 @@
 <?php
 
-require_once('Autoloader.php');
 
 class ControleurArticle {
 
@@ -51,6 +50,7 @@ class ControleurArticle {
             'signaler' => 1
         ]);
         $this->commentaire->update($commentaire);
+        Message::setFlash('Le commentaire a été <strong>signalé</strong>', 'info');
         $this->article($idArticle);
     }
 

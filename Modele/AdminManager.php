@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stefa
- * Date: 17/08/2017
- * Time: 16:31
- */
+
 require_once('Autoloader.php');
 class AdminManager extends Modele
 {
