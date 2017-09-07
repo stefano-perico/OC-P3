@@ -7,9 +7,19 @@
         </button>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php?admin">Accueil admin</a> </li>
-        </ul>
-        <a class="btn btn-danger" href="index.php?deconnexion">Déconnexion</a>
+        <?php
+        if (isset($_SESSION['admin']))
+        {
+            ?>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index.php?admin">Accueil admin</a> </li>
+
+            </ul>
+
+            <a class="btn btn-danger" href="index.php?deconnexion">Déconnexion</a>
+            <?php
+        }
+        ?>
+
     </div>
 </div>

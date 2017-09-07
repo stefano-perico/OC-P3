@@ -39,7 +39,7 @@ class ArticlesManager extends Modele
     {
         $articles = [];
 
-        $sql = $this->getBdd()->query('SELECT id, titre, contenu, dateCreation FROM articles WHERE enLigne = 1 ORDER BY dateCreation');
+        $sql = $this->getBdd()->query('SELECT id, titre, contenu, dateCreation FROM articles ORDER BY dateCreation');
 
         while ($donnees = $sql->fetch(PDO::FETCH_ASSOC))
         {

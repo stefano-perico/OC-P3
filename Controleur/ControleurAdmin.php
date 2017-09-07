@@ -26,7 +26,7 @@ class ControleurAdmin extends ControleurArticle
     public function vueCreation()
     {
         $vue = new Vue ("Admin/vueCreerArticle");
-        $vue->genererAdmin(array(null));
+        $vue->genererAdmin(array());
     }
 
     public function editerArticle($id)
@@ -44,7 +44,9 @@ class ControleurAdmin extends ControleurArticle
             'contenu' => $contenu,
         ]);
         $this->article->addArticle($article);
-        Message::setFlash('Création de l\'article <strong>réussie</strong>', 'success');
+        Message::setFlash('l\'article a bien été <strong>enregistré</strong>', 'success');
+        header('Location: index.php?admin');
+        exit();
     }
 
     public function suprArticle($id){
@@ -72,8 +74,8 @@ class ControleurAdmin extends ControleurArticle
 
     public function login($login, $pass)
     {
-        $adminM = new AdminManager();
-        $adminM->login($login, $pass);
+        $user = new userManager();
+        $user->login($login, $pass);
         header('Location: index.php?admin');
     }
 

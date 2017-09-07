@@ -1,7 +1,7 @@
 <?php
 
 require_once('Autoloader.php');
-class AdminManager extends Modele
+class userManager extends Modele
 {
     private $_db;
 
@@ -23,7 +23,7 @@ class AdminManager extends Modele
         $donnees = $sql->fetch();
         if ($donnees)
         {
-            $user = new Admin($donnees);
+            $user = new user($donnees);
             if ($user->getPassword() === sha1($pass))
             {
                 $_SESSION['admin'] = $user->getId();

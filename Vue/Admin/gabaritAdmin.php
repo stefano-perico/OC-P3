@@ -8,14 +8,12 @@
         <?php include ('Includes/head.php'); ?>
     </head>
     <body>
-
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <?php include ('Includes/navbarAdmin.php'); ?>
     </nav>
-
+    <br/>
         <?= $contenu ?>
-
+        <?php include ('Includes/script.php'); ?>
     </body>
-    <?php include ('Includes/script.php'); ?>
     </html>
 

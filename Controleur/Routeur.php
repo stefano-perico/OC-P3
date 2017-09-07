@@ -3,15 +3,97 @@
 
 class Routeur {
 
-  private $ctrlAccueil;
-  private $ctrlArticle;
+    private $ctrlAccueil;
+    private $ctrlArticle;
+    private $ctrlAdmin;
 
+    public function __construct() {
+        $this->ctrlAccueil = new ControleurAccueil();
+        $this->ctrlArticle = new ControleurArticle();
+        $this->ctrlAdmin = new ControleurAdmin();
+    }
 
-  public function __construct() {
-    $this->ctrlAccueil = new ControleurAccueil();
-    $this->ctrlArticle = new ControleurArticle();
+    public function loginAdmin()
+    {
+        if ($_GET['admin'] == 'connexion')
+        {
+            $login = $this->getParametre($_POST, 'login');
+            $pass = $this->getParametre($_POST, 'pass');
+            $this->ctrlAdmin->login($login, $pass);
+        }
+        elseif (isset($_SESSION['admin']))
+        {
+            $this->routerAdmin();
+        }
+        else
+        {
+            $this->ctrlAdmin->vueLogin();
+        }
+    }
 
-  }
+    public function routerAdmin(){
+        if (!isset($_SESSION['admin']))
+        {
+            $this->ctrlAdmin->forbidden();
+        }
+        else
+        {
+            if ($_GET['admin'])
+            {
+                if ($_GET['admin'] == 'article')
+                {
+                    $idArticle = intval($this->getParametreAdmin($_GET, 'id'));
+                    if ($idArticle != 0)
+                    {
+                        $this->ctrlAdmin->vueArticle($idArticle);
+                    }
+                    else
+                        throw new Exception("Identifiant de l'article non valide");
+                }
+                elseif($_GET['admin'] == 'editer')
+                {
+                    $idArticle = intval($this->getParametreAdmin($_GET, 'id'));
+                    if ($idArticle != 0) {
+                        $this->ctrlAdmin->editerArticle($idArticle);
+                    } else
+                        throw new Exception("Identifiant de l'article non valide");
+                }
+                elseif ($_GET['admin'] == 'creer')
+                {
+                    $this->ctrlAdmin->vueCreation();
+                }
+                elseif ($_GET['admin'] == 'modifier')
+                {
+                    $idArticle = $this->getParametreAdmin($_GET, 'id');
+                    $titreArticle = $this->getParametreAdmin($_POST, 'titre');
+                    $contenuArticle = $this->getParametreAdmin($_POST, 'contenu');
+                    $this->ctrlAdmin->modifierArticle($idArticle, $titreArticle, $contenuArticle);
+                }
+                elseif($_GET['admin'] == 'envoyer')
+                {
+                    $titre = $this->getParametreAdmin($_POST,'titre');
+                    $contenu = $this->getParametreAdmin($_POST, 'contenu');
+                    $this->ctrlAdmin->creerArticle($titre, $contenu);
+                }
+                elseif ($_GET['admin'] == 'supprimer')
+                {
+                    $idArticle = $this->getParametreAdmin($_GET, 'id');
+                    $this->ctrlAdmin->suprArticle($idArticle);
+                }
+                elseif ($_GET['admin'] == 'moderer')
+                {
+                    $idCommentaire = $this->getParametreAdmin($_GET, 'id');
+                    echo $idCommentaire;
+                    $this->ctrlAdmin->modererCommentaire($idCommentaire);
+
+                }
+            }
+            else
+            {
+                $this->ctrlAdmin->accueilAdmin();
+            }
+        }
+    }
 
   // Route une requête entrante : exécution l'action associée
     public function routerRequete() {
@@ -82,6 +164,14 @@ class Routeur {
       }
       else
         throw new Exception("Paramètre '$nom' absent");
+    }
+
+    private function getParametreAdmin($tableau, $nom) {
+        if (isset($tableau[$nom])) {
+            return ($tableau[$nom]);
+        }
+        else
+            throw new Exception("Paramètre '$nom' absent");
     }
 
 }

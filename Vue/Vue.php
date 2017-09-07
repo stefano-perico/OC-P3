@@ -28,7 +28,7 @@ class Vue {
       // Génération de la partie spécifique de la vue
       $contenu = $this->genrerFichier($this->fichier, $donnees);
       // Génération du gabarit commun utilisant la partie spécifique
-      $vue = $this->genrerFichier('Vue/Admin/VueAdmin.php',
+      $vue = $this->genrerFichier('Vue/Admin/gabaritAdmin.php',
           array('contenu' => $contenu));
       // Renvoi de la vue au navigateur
       echo $vue;

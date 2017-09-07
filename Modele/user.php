@@ -1,6 +1,6 @@
 <?php
 
-class Admin
+class user
 {
     private $_id;
     private $_login;

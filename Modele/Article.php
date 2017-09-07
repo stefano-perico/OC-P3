@@ -55,7 +55,10 @@ class Article
      */
     public function getDateCreation()
     {
-        return $this->_dateCreation;
+        setlocale (LC_TIME, 'fr_FR.utf8','fra');
+        $date = $this->_dateCreation;
+        $format = "%A %d %B %Y";
+        return strftime ( $format, strtotime($date));
     }
 
     /**

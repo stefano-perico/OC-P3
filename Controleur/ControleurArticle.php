@@ -39,6 +39,7 @@ class ControleurArticle {
             'idParent' => $idParent
         ]);
     $this->commentaire->addCommentaire($commentaire);
+     Message::setFlash('Votre commentaire a bien été <strong>ajouté</strong>', 'success');
    // Actualisation de l'affichage de l'article
     $this->article($idArticle);
  }

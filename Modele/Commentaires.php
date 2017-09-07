@@ -89,7 +89,10 @@ class Commentaires
      */
     public function getDateCreation()
     {
-        return $this->_dateCreation;
+        setlocale (LC_TIME, 'fr_FR.utf8','fra');
+        $date = $this->_dateCreation;
+        $format = "%A %d %B %Y à %H:%M:%S";
+        return strftime ( $format, strtotime($date));
     }
 
     /**

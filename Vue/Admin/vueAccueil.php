@@ -35,7 +35,7 @@
                                 class="btn btn-default"
                             >Editer</a>
                             <a
-                                onclick="return confirm('Voulez vous vraiment supprimer cette article');"
+                                onclick="return confirm('Voulez vous vraiment supprimer cette l\'article <?= $article->getTitre() ;?>?');"
                                 href="?admin=supprimer&id=<?=  $article->getId() ?>"
                                 type="button"
                                 class="btn btn-danger"
@@ -53,7 +53,7 @@
                 ?>
                 </tbody>
             </table>
-            <a type="button" class="btn btn-success" href="?admin=editer">Ajouter un article</a>
+            <a type="button" class="btn btn-success" href="index.php?admin=creer">Ajouter un article</a>
         </div>
 
         <div id="Commentaires" class="tab-pane fade">
@@ -63,7 +63,7 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $commentaire->getId() ; ?>">
-                                    <?= $commentaire->getPseudo() ; ?> <small>Le <?= $commentaire->getDateCreation() ; ?></small>
+                                    ID : <?= $commentaire->getId(); ?> Commentaire de <?= $commentaire->getPseudo() ; ?><small> posté le <?= $commentaire->getDateCreation() ; ?></small>
                                 </a>
                                 <a
                                     onclick="return confirm('Voulez vous vraiment moderer ce commentaire ?');"
