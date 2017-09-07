@@ -4,7 +4,6 @@ session_start();
 require_once('Autoloader.php');
 
 $routeur = new Routeur();
-$routeurAdmin = new RouteurAdmin();
 
 if (isset($_GET['deconnexion']))
 {
@@ -25,7 +24,7 @@ if (isset($_GET['deconnexion']))
 }
 elseif(isset($_GET['admin']))
 {
-    $routeurAdmin->loginAdmin();
+    $routeur->loginAdmin();
 }
 else
 

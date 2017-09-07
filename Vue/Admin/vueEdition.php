@@ -4,10 +4,12 @@
         <br>
         <form role="form" action="?admin=modifier&id=<?= $article->getId(); ?>" method="post">
             <div class="form-group">
+                <label>Votre titre</label>
                 <input class="form-control" name="titre" placeholder="Votre titre" value="<?= $article->getTitre(); ?>" required>
             </div>
             <div class="form-group">
-                <textarea class="form-control wysiwyg" rows="30" name="contenu" placeholder="Votre text" required ><?= $article->getContenu(); ?></textarea>
+                <label>Votre text</label>
+                <textarea id="wysiwyg" class="form-control" rows="30" name="contenu" placeholder="Votre text" required ><?= $article->getContenu(); ?></textarea>
             </div>
             <button type="submit" class="btn btn-success">Envoyer</button>
         </form>

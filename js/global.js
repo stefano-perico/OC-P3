@@ -1,6 +1,6 @@
 tinymce.init({
   mode: 'specific_textareas',
-  editor_selector: 'wysiwyg',
+  selector: '#wysiwyg',
   height: 500,
   menubar: false,
   plugins: [
@@ -12,4 +12,12 @@ tinymce.init({
   content_css: [
     '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
     '//www.tinymce.com/css/codepen.min.css']
+});
+
+jQuery(function($){
+    var alert  = $('#alert');
+    if (alert.length > 0)
+    {
+        alert.hide().slideDown(500).delay(3000).slideUp();
+    }
 });

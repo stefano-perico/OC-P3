@@ -7,10 +7,11 @@
     <head>
         <?php include ('Includes/head.php'); ?>
     </head>
-    <nav>
-        <a class="btn btn-danger" href="index.php?deconnexion">Déconnexion</a>
-    </nav>
     <body>
+    <nav class="navbar navbar-inverse">
+        <?php include ('Includes/navbarAdmin.php'); ?>
+    </nav>
+    <br/>
         <?= $contenu ?>
         <?php include ('Includes/script.php'); ?>
     </body>

@@ -13,8 +13,10 @@
     <nav class="navbar navbar-default">
         <?php include ('Includes/navbar.php') ; ?>
     </nav>
-    <?= $contenu ?>
 
+    <article>
+        <?= $contenu ?>
+    </article>
 	<!-- Pied de page -->
 
     <footer class="container-fluid bg-4 text-center">

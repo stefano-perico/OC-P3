@@ -13,19 +13,6 @@ abstract class Modele {
   private $login = "root";
   private $pass = "";
 
-
-  // Exécuter une requête SQL éventuellment paramétrée
-  protected function executeRequete($sql, $params = null) {
-    if ($params == null){
-      $resultat = $this->getBdd()->query($sql); // exécution Directe
-    }
-    else {
-      $resultat = $this->getBdd()->prepare($sql); //requête préparée
-      $resultat->execute($params);
-    }
-    return $resultat;
-  }
-
   // création d'une fonction ce connecte à la base de donnée
   // Instancie et renvoie l'objet PDO associé
   protected function getBdd() {

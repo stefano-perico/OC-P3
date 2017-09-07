@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Stefano
- * Date: 31/07/2017
- * Time: 05:30
- */
-require_once('Autoloader.php');
 
 class ArticlesManager extends Modele
 {
@@ -46,7 +39,7 @@ class ArticlesManager extends Modele
     {
         $articles = [];
 
-        $sql = $this->getBdd()->query('SELECT id, titre, contenu, dateCreation FROM articles WHERE enLigne = 1 ORDER BY dateCreation');
+        $sql = $this->getBdd()->query('SELECT id, titre, contenu, dateCreation FROM articles ORDER BY dateCreation');
 
         while ($donnees = $sql->fetch(PDO::FETCH_ASSOC))
         {

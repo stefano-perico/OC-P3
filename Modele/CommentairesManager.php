@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Stefano
- * Date: 31/07/2017
- * Time: 17:24
- */
-require_once('Autoloader.php');
+
 
 class CommentairesManager extends Modele
 {

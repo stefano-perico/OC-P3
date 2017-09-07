@@ -11,8 +11,9 @@ define('DS', DIRECTORY_SEPARATOR);
 define('CONTROLEUR', DIR . DS . 'Controleur');
 define('MODELE', DIR . DS . 'Modele');
 define('VUE', DIR . DS . 'Vue');
+define('APP', DIR . DS . 'App');
 
-define('AUTOLOAD_CLASSES', serialize(array(CONTROLEUR, MODELE, VUE)));
+define('AUTOLOAD_CLASSES', serialize(array(CONTROLEUR, MODELE, VUE, APP)));
 
  function loader($class)
     {
